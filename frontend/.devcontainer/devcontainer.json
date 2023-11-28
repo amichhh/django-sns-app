@@ -1,0 +1,46 @@
+{
+  /** 開発コンテナの名前 */
+  "name": "django-sns-app",
+  /** devcontainer.jsonファイルに対する相対的なDockerComposeファイルへのパス */
+  "dockerComposeFile": [
+    "./compose.yml"
+  ],
+  /** 接続するサービスの名前(DockerComposeファイルのservices) */
+  "service": "django-sns-app",
+  /** ウィンドウが閉じられる/シャットダウンされるときにコンテナを停止するか	*/
+  "shutdownAction": "stopCompose",
+  /** 製品固有のプロパティ */
+  "customizations": {
+    "vscode": {
+      /** settings.json */
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnType": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        }
+      },
+      /** 拡張機能 */
+      "extensions": [
+        "mhutchie.git-graph",
+        "mikestead.dotenv",
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "Vue.volar",
+        "sdras.vue-vscode-snippets",
+        "dariofuzinato.vue-peek"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install && npm install @mdi/font",
+  /** コンテナーに接続するときに開くデフォルトのパス */
+  "workspaceFolder": "/home/node/workspace",
+  /** コンテナ内からローカルマシンに常に転送されるポート番号 */
+  "forwardPorts": [
+    3010
+  ],
+  /** コンテナ内で実行されるVSCodeのユーザ */
+  "remoteUser": "root"
+}
